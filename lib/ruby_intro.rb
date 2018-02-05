@@ -18,19 +18,40 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  #s =~ /^[bcdfghjklmnpqrstvwxyz]/i
+  return true if s =~ /^[a-z&&[^aeiou]]/i
+  false
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  s =~ /^(0*1[01]*00|0+)$/
+  # if s =~ /^[01]+$/
+  #   #form string to decimal
+  #   #check if multiple of 4
+  #   #if is multiple of 4 return true
+  #   #return ((s.to_i(2) % 4) == 0)
+  #   (s.to_i(2) % 4) == 0
+  # else
+  #   return false
+  # end
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn
+  attr_accessor :price
+  def initialize(isbn, price)
+    raise ArgumentError if isbn.length == 0 || price <= 0
+    @isbn = isbn
+    @price = price
+  end
+  def price_as_string
+    "$%.2f" % price
+  end
+  
 end
