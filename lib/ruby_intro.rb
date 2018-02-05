@@ -3,15 +3,16 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.inject(0,:+)
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  arr.max(2).inject(0,:+)
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  arr.each_index { |x| return true if (i = arr.index(n - arr[x])) && (i != x) }
+  false
 end
 
 # Part 2
