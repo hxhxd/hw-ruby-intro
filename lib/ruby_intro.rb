@@ -11,7 +11,8 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  arr.each_index { |x| return true if (i = arr.index(n - arr[x])) && (i != x) }
+  arr.each_index { |x| return true if
+    (i = arr.index(n - arr[x])) && (i != x) }
   false
 end
 
@@ -23,12 +24,15 @@ end
 
 def starts_with_consonant? s
   #s =~ /^[bcdfghjklmnpqrstvwxyz]/i
-  return true if s =~ /^[a-z&&[^aeiou]]/i
-  false
+  #!!(s =~ /^[[a-z]-[aeiou]]/i)
+  #Turns out ruby does not support RE subtraction.  && intersection
+  !!(s =~ /^[a-z&&[^aeiou]]/i)
+  # return true if s =~ /^[a-z&&[^aeiou]]/i
+  # false
 end
 
 def binary_multiple_of_4? s
-  s =~ /^(0*1[01]*00|0+)$/
+  !!(s =~ /^(0*1[01]*00|0+)$/)
   # if s =~ /^[01]+$/
   #   #form string to decimal
   #   #check if multiple of 4
